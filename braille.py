@@ -115,12 +115,9 @@ def convert(argv):
 
     #read converted file
     y = open("inputs/"+sys.argv[1].replace(' ', '')[:-4]+'.txt', "r")
-    print("before translate")
     output = brl.translate(y.read())
-    print("after translate,before unicode")
     #convert into Grade 2 Braille unicode
     x=brl.toUnicodeSymbols(output, flatten=True)
-    print("after unicode")
     #save to results folder in .txt format
     text_file = open("results/"+sys.argv[1].replace(' ', '')[:-4]+"-Braille.txt", "w")
     text_file.write(x.encode(codec))
